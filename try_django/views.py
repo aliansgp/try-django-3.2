@@ -1,7 +1,7 @@
 """
 to render HTML web pages
 """
-from django.http import HttpRequest
+from django.http import HttpResponse
 
 HTML_STRING="""
 <h1>Hello World</h1>
@@ -12,4 +12,4 @@ def home(request):
     take in a request:
     returns HTML as response
     """
-    return HttpRequest(HTML_STRING)
+    return HttpResponse(HTML_STRING)
