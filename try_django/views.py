@@ -28,7 +28,7 @@ def home(request):
         "content": data_Article.content
     }
     HTML = """
-    <h1>{title} (id : {id}</h1>
+    <h1>{title} (id : {id})</h1>
     <p>{content}</p>
     """.format(**contex)
     HTML_RES = HTML_STRING + HTML
