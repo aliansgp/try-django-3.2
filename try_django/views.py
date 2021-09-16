@@ -12,8 +12,14 @@ def home(request):
     take in a request:
     returns HTML as response
     """
+
     random_id = random.randint(1,3)
     data_Article = Article.objects.get(id=random_id)
+
+    #working with html variables and merge them
+    note1 = """
+    <p>working with html variables and merge them:</p>
+    """
     title =f"""
     <h1>{data_Article.title}</h1>
     """
@@ -22,14 +28,19 @@ def home(request):
     """
     HTML_STRING = title + content
 
+    #working with template as dictionary
     contex = {
         "title" : data_Article.title,
         "id": data_Article.id,
         "content": data_Article.content
     }
     HTML = """
+    <p>working with template as dictionary:</p>
     <h1>{title} (id : {id})</h1>
     <p>{content}</p>
     """.format(**contex)
+
+
+
     HTML_RES = HTML_STRING + HTML
     return HttpResponse(HTML_RES)
