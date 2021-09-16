@@ -22,4 +22,14 @@ def home(request):
     """
     HTML_STRING = title + content
 
-    return HttpResponse(HTML_STRING)
+    contex = {
+        "title" : data_Article.title,
+        "id": data_Article.id,
+        "content": data_Article.content
+    }
+    HTML = """
+    <h1>{title} (id : {id}</h1>
+    <p>{content}</p>
+    """.format(**contex)
+    HTML_RES = HTML_STRING + HTML
+    return HttpResponse(HTML_RES)
