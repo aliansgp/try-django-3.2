@@ -40,7 +40,8 @@ def home(request):
     <p>{content}</p>
     """.format(**contex)
 
+    #working with templates as HTML file:
     HTML_FILE = render_to_string("home-view.html",context=contex)
-
+    
     HTML_RES = HTML_STRING + HTML_DIC + HTML_FILE
     return HttpResponse(HTML_RES)
